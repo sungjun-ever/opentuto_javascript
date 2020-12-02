@@ -7,37 +7,37 @@
 </head>
 <body>
     <h1>Web</h1>
-    <input id='night' type="button" value="night" onclick="change()"></button>
+    <input id='night' type="button" value="night" onclick="change(this)"></button>
     <ol>
         <li><a href="#">HTML</a></li>
         <li><a href="#">CSS</a></li>
         <li><a href="#">JavaScript</a></li>
     </ol>
     <script>
-        function change(){
+        function change(self){
             var target = document.querySelector('body')
-            var color = document.getElementById('night')
-            
-            if (color.value === 'night'){
+            if (self.value === 'night'){
                 target.style.backgroundColor = 'black';
                 target.style.color = 'powderblue';
+                self.value = 'day';
+
                 var list = document.querySelectorAll('a')
                 var i = 0
                 while(i < list.length){
                     list[i].style.color = 'powderblue'
                     i += 1
                 }
-                color.value = 'day';
             } else {
                 target.style.backgroundColor = 'white';
                 target.style.color = 'black';
+                self.value = 'night';
+
                 var i = 0
                 var list = document.querySelectorAll('a')
                 while(i < list.length){
                     list[i].style.color = 'blue'
                     i += 1
                 }
-                color.value = 'night';
             }
         }
     </script>
